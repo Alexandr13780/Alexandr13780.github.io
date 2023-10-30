@@ -4,15 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>vit | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="vit论文名：An image is worth 16*16 words: transformers for image recognition at scale 论文下载地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2010.11929.pdf?fbclid&#x3D;IwAR1NafJDhZjkARvCswpV6kS9_hMa0ycvzwhlCb7cqAGwgzComFXcScxgA8o 项目微调代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vit">
+<meta property="og:url" content="http://example.com/2023/10/30/vit/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vit论文名：An image is worth 16*16 words: transformers for image recognition at scale 论文下载地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2010.11929.pdf?fbclid&#x3D;IwAR1NafJDhZjkARvCswpV6kS9_hMa0ycvzwhlCb7cqAGwgzComFXcScxgA8o 项目微调代">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/10/30/vit/vit.jpg">
+<meta property="article:published_time" content="2023-10-30T06:21:20.000Z">
+<meta property="article:modified_time" content="2023-10-30T08:48:21.617Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/10/30/vit/vit.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -71,9 +77,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-vit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-vit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/10/30/vit/" class="article-date">
   <time class="dt-published" datetime="2023-10-30T06:21:20.000Z" itemprop="datePublished">2023-10-30</time>
@@ -86,8 +90,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/30/vit/">vit</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      vit
     </h1>
   
 
@@ -118,78 +122,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-transformer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/26/transformer/" class="article-date">
-  <time class="dt-published" datetime="2023-10-26T08:00:47.000Z" itemprop="datePublished">2023-10-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/26/transformer/">transformer</a>
-    </h1>
+    <a href="/2023/10/26/transformer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">transformer</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>Attention即注意力机制，有三个变量分别是q(query), k(key), v(value)，k和v是成对存在的，一个k对应着一个v，然后通过查询q，在这些键值对里进行一系列操作最后得到输出。</p>
-<p>先来看个数学公式</p>
-<p><img src="/2023/10/26/transformer/attention.jpg"></p>
-<p>K是kernel核函数，这里相当于query减去每个键值对的key，以查询与键之间的距离作为权重，通过核函数进行映射，再乘以每个key对应的value，一个q对n对(k,v)进行运算然后相加就是最后想得到的值。通俗地讲，相当于通过查询，与查询内容相近的点权重更大，它的值对最后的结果有着更大的影响。</p>
-<p>上面的数学公式只用于理解注意力机制，下面是实际应用</p>
-<p>可以用softmax对上述公式进行简化，q与k之间的关系也进行一定的修改</p>
-<p><img src="/2023/10/26/transformer/attention2.jpg"></p>
-<p>a表示q与k之间的关系，通常有下面俩种</p>
-<p>1.Additive Attention</p>
-<p>Wk是k乘以h的矩阵,Wq是q乘以h的矩阵，h是一个长为h的向量，这三个都是可以学习的变量</p>
-<p><img src="/2023/10/26/transformer/attention3.jpg"></p>
-<p>2.Scaled Dot-Product Attention</p>
-<p>要用这个q和k必须要有同样的长度，假如它们长度都为d</p>
-<p><img src="/2023/10/26/transformer/attention4.jpg"></p>
-<h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self Attention"></a>Self Attention</h3><p>Self Attention(自注意力)大概就是输入一串向量，然后每个向量都会与其他向量发生关联，最后生成输出，每个输出都是考虑了所有输入产生的结果，在序列模型里应用广泛，就像下面这张图。</p>
-<p><img src="/2023/10/26/transformer/self_attention.jpg"></p>
-<p>那么这些向量是如何关联的呢</p>
-<p><img src="/2023/10/26/transformer/self_attention2.png"></p>
-<p><img src="/2023/10/26/transformer/self_attention3.png"></p>
-<p>对输入向量乘以矩阵生成q与k,然后将q与k进行点积生成注意力分数，进行softmax操作代表了当前k对于q的权重，乘v再相加得到的就是最后的输出，每个输出都是这样运算的，这便是自注意力。</p>
-<h3 id="Multi-Headed"><a href="#Multi-Headed" class="headerlink" title="Multi-Headed"></a>Multi-Headed</h3><p>一组q,k,v只能得到一种特征表达，使用多组q,k,v就能得到多种特征表达，这就是Multi-headed(多头注意力机制)，然后我们将所有特征拼接在一起，再通过全连接层来降维。</p>
-<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><p><img src="/2023/10/26/transformer/transformer.jpg" alt="transformer"></p>
-<p>transformer的架构如上图所示，由一个编码器和一个解码器组成</p>
-<p>1.编码器</p>
-<p>（Position encoding是什么？</p>
-<p>self-attention是对整个序列进行计算，忽略了位置信息，在一个句子里面，每个单词都会被提取成 embedding，可以对这些词嵌入(word embedding)加上position encoding来提供位置信息。）</p>
-<p>输入单词序列，被提取成embedding，通过Position encoding添加位置信息，进入多头自注意力层，add代表残差连接，Norm表示对该层进行归一化使训练速度更快，接着进入前馈网络，也就是一个全连接层，再次进行add&amp;norm，注意力层能够反复堆叠，进行n次训练，接着把输出信息给解码器。</p>
-<p>2.解码器</p>
-<p>大部分几乎和编码器一样，Masked Multi-Head Attention进行了稍微修改，比如输入有a1, a2, a3, a4，此时判断b3的输出，它只能够得到a1, a2, a3的输入信息，不能得到a4的输入信息，后面将前面编码器提供的信息作为k和v，自己的信息作为q，再次进行注意力运算，然后最后通过全连接层和softmax输出概率，在字典里概率最高的那个词就是输出。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/26/transformer/" data-id="clocq3itv0000lct1gv03dkau" data-title="transformer" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
