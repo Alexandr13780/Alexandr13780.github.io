@@ -73,56 +73,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/30/vit/" class="article-date">
-  <time class="dt-published" datetime="2023-10-30T06:21:20.000Z" itemprop="datePublished">2023-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/30/vit/">vit</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>vit论文名：An image is worth 16*16 words: transformers for image recognition at scale</p>
-<p>论文下载地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf?fbclid=IwAR1NafJDhZjkARvCswpV6kS9_hMa0ycvzwhlCb7cqAGwgzComFXcScxgA8o">https://arxiv.org/pdf/2010.11929.pdf?fbclid=IwAR1NafJDhZjkARvCswpV6kS9_hMa0ycvzwhlCb7cqAGwgzComFXcScxgA8o</a></p>
-<p>项目微调代码与预训练模型地址 ：<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer">https://github.com/google-research/vision_transformer</a></p>
-<p>摘要：transformer在NLP领域得到广泛使用，但是在视觉领域没有掀起太大波澜，作者发现CNN并不是必要的，完全仅使用transformer就可以获得很好的效果，这篇文章提出了vit并将它运用在图像分类任务中。</p>
-<p>引言：自注意力机制特别是transformer在NLP领域很重要，大概方法是在很大的文本数据集中训练然后在小的特定任务数据集上微调，但在计算机视觉领域卷积神经网络依然是主流方法，已经有很多工作将self-attention与CNN结合起来，本文直接将transformer应用于图像上，为了这么做，先将图片分成一个个patch，然后再提供这些patch的线性顺序，一起放入transformer中。在中等的数据集上进行训练时发现效果适中，低于那些常规的分类器，但是当数据集足够大的时候模型达到了极好的效果。</p>
-<p>相关工作：transformer的提出  将注意力机制加入到视觉里并取得不错效果  将图片分成2*2的网络模型  卷积神经网络和自注意力机制结合起来的许多有趣工作  更大规模（数据集更大）的图像识别</p>
-<p>方法：</p>
-<p>网络模型的基本架构</p>
-<p><img src="/2023/10/30/vit/vit.jpg"></p>
-<p>图片的大小为(H,W,C)，将图片分成一个个P<em>P的大小，这样总共会有(H * W &#x2F; P * P)个patch，比如一张图片是(224,224,3)的大小，每个patch是16</em>16的大小，总共会有（14，14，768）的图片经过线性投射层后会生成（196，768）大小的向量，加上位置编码与class token才会被输入到transforrmer encoder中去，位置编码运用的是一维顺序的，因为采用二维编码并没有提升，class token是用于分类的，这样就变成了（197，768）的向量，经过编码器与MLP，通过class token判断图像的类别</p>
-<p>实验：证明了vit的能力</p>
-<p>总结：本文将一张图片拆成一系列的patch并用transformer来处理，当在大的数据集上训练的时候效果出奇的好</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/30/vit/" data-id="clocq3iu00001lct18vlfgpsn" data-title="vit" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-transformer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/10/26/transformer/" class="article-date">
@@ -178,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/26/transformer/" data-id="clocq3itv0000lct1gv03dkau" data-title="transformer" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/10/26/transformer/" data-id="clowmzz2k000048t16tisdpfr" data-title="transformer" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -219,10 +169,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2023/10/30/vit/">vit</a>
-          </li>
         
           <li>
             <a href="/2023/10/26/transformer/">transformer</a>
